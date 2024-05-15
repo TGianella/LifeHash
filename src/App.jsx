@@ -3,6 +3,7 @@ import {useState} from "react";
 import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
 import {TextInput} from "./TextInput.jsx";
 import {TextBox} from "./TextBox.jsx";
+import {bitStreamToBase64} from "./bitStreamToBase64.js";
 
 const bitsStream = [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
 const getStringBits = (string) => {
@@ -32,6 +33,7 @@ const generateSeed = () => [...Array(256)].map(() => Math.random() > 0.5 ? 1 : 0
 
 function App() {
     const [seed, setSeed] = useState(generateSeed());
+    const [resultBits, setResultBits] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,13 +45,16 @@ function App() {
         console.log({seed})
 
         setSeed(seed);
+        setResultBits('')
     }
 
   return (
       <>
           <TextInput onSubmit={handleSubmit} />
           <TextBox>{seed.join('')}</TextBox>
-          <GameOfLifeHashCSS seed={seed} />
+          <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits} />
+          <TextBox>{resultBits && resultBits.length ? resultBits : 'Bits'}</TextBox>
+          <TextBox>{resultBits && resultBits.length ? bitStreamToBase64(resultBits.split('')) : 'Digest' }</TextBox>
       </>
   )
 }
