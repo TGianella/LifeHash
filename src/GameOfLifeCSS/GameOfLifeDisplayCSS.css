@@ -1,13 +1,18 @@
+:root {
+    --cell-width: 30px;
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(16, 20px);
+    grid-template-columns: repeat(16, var(--cell-width));
     gap: 1px;
     background-color: black;
+    border: 1px solid black;
 }
 
 .cell {
-    width: 20px;
-    height: 20px;
+    width: var(--cell-width);
+    height: var(--cell-width);
 }
 
 .alive {

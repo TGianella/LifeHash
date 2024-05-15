@@ -1,13 +1,9 @@
 import './App.css'
 import {useState} from "react";
 import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
-import {TextInput} from "./TextInput.jsx";
-import {TextBox} from "./TextBox.jsx";
-import {bitStreamToBase64} from "./bitStreamToBase64.js";
 import {PasswordToBits} from "./PasswordToBits.jsx";
 import {BitsToHash} from "./BitsToHash.jsx";
 
-const bitsStream = [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
 const getStringBits = (string) => {
     let res = '';
     for (let i = 0; i < string.length; i++) {
@@ -25,16 +21,10 @@ const padBitsTo256 = (bits) => {
     } else {
         return bits;
     }
-
 }
 
-const generateSeed = () => [...Array(256)].map(() => Math.random() > 0.5 ? 1 : 0);
-
-
-
-
 function App() {
-    const [seed, setSeed] = useState(generateSeed());
+    const [seed, setSeed] = useState([]);
     const [resultBits, setResultBits] = useState('');
 
     const handleSubmit = (e) => {

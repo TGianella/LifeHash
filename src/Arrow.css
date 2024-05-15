@@ -1,8 +1,8 @@
 .arrow {
-    width: 200px;
-    height: 200px;
-    background-color: red;
-    clip-path: polygon(0% 40%, 70% 40%, 70% 25%, 100% 50%, 70% 75%, 70% 60%, 0% 60%);
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    clip-path: polygon(10% 40%, 60% 40%, 60% 25%, 90% 50%, 60% 75%, 60% 60%, 10% 60%);
 }
 
 .down {

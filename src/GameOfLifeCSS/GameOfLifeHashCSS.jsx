@@ -5,7 +5,7 @@ import {Universe} from "@tgianella/js-game-of-life";
 import "../GameOfLifeHash.css"
 
 export const GameOfLifeHashCSS = ({seed, setResultBits}) => {
-    const universe = new Universe(false, 16, 16, seed);
+    const universe = new Universe(!seed.length, 16, 16, seed.length ? seed : null);
 
     return (
         <div className="game-of-life-wrapper">

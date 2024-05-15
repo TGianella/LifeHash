@@ -1,7 +1,21 @@
 .text-box {
-    width: 200px;
-    border: 1px solid red;
-    max-width: 200px;
+    max-width: 400px;
     text-overflow: ellipsis;
     overflow: hidden;
+    margin-block: 0;
+}
+
+fieldset {
+    width: 400px;
+    max-width: 400px;
+    min-height: 65px;
+}
+
+legend {
+    margin-left: -30%;
+}
+
+.digest {
+    word-wrap: break-word;
+    text-align: start;
 }
