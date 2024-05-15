@@ -4,6 +4,8 @@ import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
 import {TextInput} from "./TextInput.jsx";
 import {TextBox} from "./TextBox.jsx";
 import {bitStreamToBase64} from "./bitStreamToBase64.js";
+import {PasswordToBits} from "./PasswordToBits.jsx";
+import {BitsToHash} from "./BitsToHash.jsx";
 
 const bitsStream = [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
 const getStringBits = (string) => {
@@ -49,13 +51,11 @@ function App() {
     }
 
   return (
-      <>
-          <TextInput onSubmit={handleSubmit} />
-          <TextBox>{seed.join('')}</TextBox>
+      <div className="app">
+          <PasswordToBits handleSubmit={handleSubmit} seed={seed} />
+          <BitsToHash resultBits={resultBits} />
           <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits} />
-          <TextBox>{resultBits && resultBits.length ? resultBits : 'Bits'}</TextBox>
-          <TextBox>{resultBits && resultBits.length ? bitStreamToBase64(resultBits.split('')) : 'Digest' }</TextBox>
-      </>
+      </div>
   )
 }
 

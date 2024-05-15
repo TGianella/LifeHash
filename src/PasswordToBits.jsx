@@ -5,17 +5,12 @@ import {Arrow} from "./Arrow.jsx";
 
 
 
-export const PasswordToBits = ({handleSubmit, plaintext}) => {
-
-
-
-
-
+export const PasswordToBits = ({handleSubmit, seed}) => {
     return (
         <div className="password-bits a">
             <TextInput onSubmit={handleSubmit}/>
             <Arrow direction="down" />
-            <TextBox>{plaintext}</TextBox>
+            <TextBox>{seed.join('')}</TextBox>
             <Arrow direction="down" />
         </div>
     )
