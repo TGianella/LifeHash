@@ -1,0 +1,7 @@
+.text-box {
+    width: 200px;
+    border: 1px solid red;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

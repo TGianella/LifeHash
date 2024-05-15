@@ -1,0 +1,18 @@
+.arrow {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    clip-path: polygon(0% 40%, 70% 40%, 70% 25%, 100% 50%, 70% 75%, 70% 60%, 0% 60%);
+}
+
+.down {
+    rotate: 90deg;
+}
+
+.right {
+    rotate: 180deg;
+}
+
+.up {
+    rotate: 270deg;
+}
