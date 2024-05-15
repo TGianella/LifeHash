@@ -1,6 +1,8 @@
 import './App.css'
 import {useState} from "react";
 import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
+import {TextInput} from "./TextInput.jsx";
+import {TextBox} from "./TextBox.jsx";
 
 const bitsStream = [1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
 const getStringBits = (string) => {
@@ -12,16 +14,42 @@ const getStringBits = (string) => {
     return res;
 }
 
+const padBitsTo256 = (bits) => {
+    if (bits.length < 256) {
+        const bitsToPad = 256 - bits.length;
+        const padding = Array.from('0'.repeat(bitsToPad)).map((n) => Number(n));
+        return bits.concat(padding);
+    } else {
+        return bits;
+    }
+
+}
+
 const generateSeed = () => [...Array(256)].map(() => Math.random() > 0.5 ? 1 : 0);
+
+
 
 
 function App() {
     const [seed, setSeed] = useState(generateSeed());
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const plaintext = formData.get('plaintext');
+        const plaintextBits = getStringBits(plaintext);
+        const seed = padBitsTo256(plaintextBits.split('')).map((cell) => Number(cell));
+        console.log({seed})
+
+        setSeed(seed);
+    }
+
   return (
       <>
-          <button onClick={() => setSeed(generateSeed())}>Change seed</button>
-          <GameOfLifeHashCSS seed={generateSeed()}/>
+          <TextInput onSubmit={handleSubmit} />
+          <TextBox>{seed.join('')}</TextBox>
+          <GameOfLifeHashCSS seed={seed} />
       </>
   )
 }

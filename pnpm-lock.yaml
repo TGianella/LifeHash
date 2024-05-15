@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@tgianella/js-game-of-life':
+        specifier: ^1.1.0
+        version: 1.1.0
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -425,6 +428,9 @@ packages:
     resolution: {integrity: sha512-TGGO7v7qOq4CYmSBVEYpI1Y5xDuCEnbVC5Vth8mOsW0gDSzxNrVERPc790IGHsrT2dQSimgMr9Ub3Y1Jci5/8w==}
     cpu: [x64]
     os: [win32]
+
+  '@tgianella/js-game-of-life@1.1.0':
+    resolution: {integrity: sha512-RRKWsNHWAbRK6Yuppq9ayE2179uR9DMASSi6ALoax77R8ywU4dZ8CUG/3nzDDPX0VGGBilTkscQi0gNjcFVsbA==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -1670,6 +1676,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.17.2':
     optional: true
+
+  '@tgianella/js-game-of-life@1.1.0': {}
 
   '@types/babel__core@7.20.5':
     dependencies:
