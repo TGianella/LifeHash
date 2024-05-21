@@ -49,12 +49,13 @@ function App() {
         setTimeout(() => {
             setHashes(hashes.concat(plaintextDigest));
         }, 3000)
-
     }
+
+    const loginPanelDisplay = !!hashes && !!hashes.length ? "visible" : "hidden";
 
   return (
       <div className="app-container">
-          <LoginPanel hashes={hashes}/>
+          {<LoginPanel hashes={hashes} style={{visibility: loginPanelDisplay}}/>}
           <div className="app">
               <div className="box-wrapper">
                   <PasswordToBits handleSubmit={handleSubmit} seed={seed}/>
