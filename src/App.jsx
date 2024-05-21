@@ -3,8 +3,10 @@ import {useState} from "react";
 import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
 import {PasswordToBits} from "./PasswordToBits.jsx";
 import {BitsToHash} from "./BitsToHash.jsx";
+import {LoginPanel} from "./LoginPanel.jsx";
+import {hashFunction} from "./hashFunction.js";
 
-const getStringBits = (string) => {
+export const getStringBits = (string) => {
     let res = '';
     for (let i = 0; i < string.length; i++) {
         res += string.charCodeAt(i).toString(2);
@@ -26,6 +28,7 @@ export const padBitsTo256 = (bits) => {
 function App() {
     const [seed, setSeed] = useState([]);
     const [resultBits, setResultBits] = useState('');
+    const [hashes, setHashes] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,16 +41,26 @@ function App() {
 
         setSeed(seed);
         setResultBits('')
+
+        const digest = hashFunction(plaintext);
+        const plaintextDigest = {plaintext, digest};
+        setTimeout(() => {
+            setHashes(hashes.concat(plaintextDigest));
+        }, 3000)
+
     }
 
   return (
-      <div className="app">
-          <div className="box-wrapper">
-              <PasswordToBits handleSubmit={handleSubmit} seed={seed} />
-              <p className="label green">Encodage et décodage</p>
-              <BitsToHash resultBits={resultBits} />
+      <div className="app-container">
+          <LoginPanel hashes={hashes}/>
+          <div className="app">
+              <div className="box-wrapper">
+                  <PasswordToBits handleSubmit={handleSubmit} seed={seed}/>
+                  <p className="label green">Encodage et décodage</p>
+                  <BitsToHash resultBits={resultBits}/>
+              </div>
+              <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits}/>
           </div>
-          <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits} />
       </div>
   )
 }

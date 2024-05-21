@@ -10,7 +10,7 @@ export const PasswordToBits = ({handleSubmit, seed}) => {
         <div className="password-bits a">
             <TextInput onSubmit={handleSubmit}/>
             <Arrow direction="down" />
-            <TextBox title="Plaintext bits">{seed.join('')}</TextBox>
+            <TextBox title="Bits en clair">{seed.join('')}</TextBox>
             <Arrow direction="down" />
         </div>
     )

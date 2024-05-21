@@ -5,9 +5,9 @@ import {bitStreamToBase64} from "./bitStreamToBase64.js";
 export const BitsToHash = ({resultBits}) => {
     return (
         <div className="password-bits b">
-            <TextBox className="digest" title="Digest">{resultBits && resultBits.length ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
+            <TextBox className="digest" title="Condensé">{resultBits && resultBits.length ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
             <Arrow direction="up" />
-            <TextBox title="Hashed bits">{resultBits && resultBits.length ? resultBits : ''}</TextBox>
+            <TextBox title="Bits hachés">{resultBits && resultBits.length ? resultBits : ''}</TextBox>
             <Arrow direction="up" />
         </div>
     )

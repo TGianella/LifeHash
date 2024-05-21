@@ -24,3 +24,17 @@
     color: rgba(0, 160, 0, 1);
     align-self: start;
 }
+
+.app-container {
+    display: flex;
+    gap: 50px;
+}
+
+.login-panel {
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    min-width: 300px;
+    max-width: 300px;
+}
