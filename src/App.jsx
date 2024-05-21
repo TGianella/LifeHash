@@ -13,7 +13,7 @@ const getStringBits = (string) => {
     return res;
 }
 
-const padBitsTo256 = (bits) => {
+export const padBitsTo256 = (bits) => {
     if (bits.length < 256) {
         const bitsToPad = 256 - bits.length;
         const padding = Array.from('0'.repeat(bitsToPad)).map((n) => Number(n));
@@ -42,8 +42,11 @@ function App() {
 
   return (
       <div className="app">
-          <PasswordToBits handleSubmit={handleSubmit} seed={seed} />
-          <BitsToHash resultBits={resultBits} />
+          <div className="box-wrapper">
+              <PasswordToBits handleSubmit={handleSubmit} seed={seed} />
+              <p className="label green">Encodage et décodage</p>
+              <BitsToHash resultBits={resultBits} />
+          </div>
           <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits} />
       </div>
   )

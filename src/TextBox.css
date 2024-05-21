@@ -3,6 +3,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     margin-block: 0;
+
 }
 
 fieldset {
@@ -11,11 +12,6 @@ fieldset {
     min-height: 65px;
 }
 
-legend {
-    margin-left: -30%;
-}
-
 .digest {
     word-wrap: break-word;
-    text-align: start;
 }
