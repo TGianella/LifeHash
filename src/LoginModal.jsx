@@ -9,6 +9,7 @@ export const LoginModal = ({style}) => {
     const [identifiersList, setIdentifiersList] = useState([]);
     const [triedLogin, setTriedLogin] = useState(false);
     const [login, setLogin] = useState(initialState);
+    const [registered, setRegistered] = useState(false);
 
     const onRegisterSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +21,8 @@ export const LoginModal = ({style}) => {
         const identifiers = {username, digest};
 
         e.target.reset();
-        setIdentifiersList(identifiersList.concat([identifiers]))
+        setIdentifiersList(identifiersList.concat([identifiers]));
+        setRegistered(true);
         setTriedLogin(false);
     };
     const onLoginSubmit = (e) => {
@@ -34,6 +36,7 @@ export const LoginModal = ({style}) => {
         const loginSuccess = digest === digestToCheck;
         const nextLogin = {success: loginSuccess, digest, username};
 
+        setRegistered(false);
         setTriedLogin(true);
         setLogin(nextLogin);
     };
@@ -48,10 +51,9 @@ export const LoginModal = ({style}) => {
             <div className="login-message-container">
                 {triedLogin ?
                     login && login.success ? <span className="login-message">Bienvenue {login.username} ! 👍</span> :
-                        <span className="login-message">Identifiants invalides</span>
-                    : null}
+                        <span className="login-message">Identifiants invalides 🧐</span>
+                    : registered ? <span className="login-message">Nouveau compte créé 🎉</span> : null}
             </div>
         </div>
     )
-
 }

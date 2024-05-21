@@ -41,7 +41,6 @@ function App() {
         const plaintext = formData.get('plaintext');
         const plaintextBits = getStringBits(plaintext);
         const seed = padBitsTo256(plaintextBits.split('')).map((cell) => Number(cell));
-        console.log({seed})
 
         setSeed(seed);
         setResultBits('')
@@ -49,7 +48,12 @@ function App() {
         const digest = hashFunction(plaintext);
         const plaintextDigest = {plaintext, digest};
         setTimeout(() => {
-            setHashes(hashes.concat(plaintextDigest));
+            if (hashes.length < 5) {
+                setHashes(hashes.concat(plaintextDigest));
+            } else {
+                setHashes(hashes.slice(1).concat(plaintextDigest));
+            }
+
         }, 3000)
     }
 
