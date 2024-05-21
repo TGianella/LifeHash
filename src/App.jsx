@@ -5,6 +5,7 @@ import {PasswordToBits} from "./PasswordToBits.jsx";
 import {BitsToHash} from "./BitsToHash.jsx";
 import {LoginPanel} from "./LoginPanel.jsx";
 import {hashFunction} from "./hashFunction.js";
+import {LoginModal} from "./LoginModal.jsx";
 
 export const getStringBits = (string) => {
     let res = '';
@@ -31,6 +32,7 @@ function App() {
     const [seed, setSeed] = useState([]);
     const [resultBits, setResultBits] = useState('');
     const [hashes, setHashes] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -51,20 +53,26 @@ function App() {
         }, 3000)
     }
 
-    const loginPanelDisplay = !!hashes && !!hashes.length ? "visible" : "hidden";
+    const handleButtonClick = () => {
+        setIsModalOpen(!isModalOpen);
+    }
 
   return (
-      <div className="app-container">
-          {<LoginPanel hashes={hashes} style={{visibility: loginPanelDisplay}}/>}
-          <div className="app">
-              <div className="box-wrapper">
-                  <PasswordToBits handleSubmit={handleSubmit} seed={seed}/>
-                  <p className="label green">Encodage et décodage</p>
-                  <BitsToHash resultBits={resultBits}/>
+      <>
+          <LoginModal style={{display: isModalOpen ? "flex" : "none"}}/>
+          <div className="app-container">
+              {<LoginPanel hashes={hashes} onButtonClick={handleButtonClick} />}
+              <div className="app">
+                  <div className="box-wrapper">
+                      <PasswordToBits handleSubmit={handleSubmit} seed={seed}/>
+                      <p className="label green">Encodage et décodage</p>
+                      <BitsToHash resultBits={resultBits}/>
+                  </div>
+                  <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits}/>
               </div>
-              <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits}/>
           </div>
-      </div>
+      </>
+
   )
 }
 

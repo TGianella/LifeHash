@@ -38,3 +38,9 @@
     min-width: 300px;
     max-width: 300px;
 }
+
+.login-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,29 @@
+.login-modal {
+    --modal-width: 40vw;
+    --modal-height: 30vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(calc(var(--modal-width) / -2)) translateY(calc(var(--modal-height) / -2));
+    width: var(--modal-width);
+    height: var(--modal-height);
+    border: 1px solid red;
+    background: rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form-separator {
+    height: calc(var(--modal-height) / 2);
+    width: 1px;
+    background: grey;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
