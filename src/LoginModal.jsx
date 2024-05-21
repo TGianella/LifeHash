@@ -19,19 +19,20 @@ export const LoginModal = ({style}) => {
         const digest = hashFunction(plaintext);
         const identifiers = {username, digest};
 
+        e.target.reset();
         setIdentifiersList(identifiersList.concat([identifiers]))
+        setTriedLogin(false);
     };
     const onLoginSubmit = (e) => {
-        console.log("coucou")
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const username = formData.get('username');
         const plaintext = formData.get('password');
         const digest = hashFunction(plaintext);
-        const digestToCheck = identifiersList.find((identifiers) => identifiers.username === username).digest;
+        const digestToCheck = identifiersList.find((identifiers) => identifiers.username === username)?.digest;
         const loginSuccess = digest === digestToCheck;
-        const nextLogin = {success: loginSuccess, digest};
+        const nextLogin = {success: loginSuccess, digest, username};
 
         setTriedLogin(true);
         setLogin(nextLogin);
@@ -39,13 +40,17 @@ export const LoginModal = ({style}) => {
 
     return (
         <div className="login-modal" style={style}>
-            <Form onSubmit={onRegisterSubmit} actionLabel="S'inscrire" />
-            <div className="form-separator" />
-            <Form onSubmit={onLoginSubmit} actionLabel="Se connecter" login={login}>
+            <div className="login-forms">
+                <Form onSubmit={onRegisterSubmit} actionLabel="S'inscrire"/>
+                <div className="form-separator"></div>
+                <Form onSubmit={onLoginSubmit} actionLabel="Se connecter" login={login}/>
+            </div>
+            <div className="login-message-container">
                 {triedLogin ?
-                    login && login.success ? <p>Bravo {login.digest}</p> : <p>Identifiants invalides</p>
-                : null }
-            </Form>
+                    login && login.success ? <span className="login-message">Bienvenue {login.username} ! 👍</span> :
+                        <span className="login-message">Identifiants invalides</span>
+                    : null}
+            </div>
         </div>
     )
 

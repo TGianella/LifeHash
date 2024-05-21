@@ -1,15 +1,26 @@
 .login-modal {
-    --modal-width: 40vw;
-    --modal-height: 30vh;
+    --modal-width: 60vw;
+    --modal-height: 50vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(calc(var(--modal-width) / -2)) translateY(calc(var(--modal-height) / -2));
     width: var(--modal-width);
     height: var(--modal-height);
-    border: 1px solid red;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    font-size: 30px;
+    z-index: 10;
+}
+
+.login-forms {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -26,4 +37,21 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    justify-content: start;
+
+    input {
+        font-size: 30px;
+    }
+}
+
+.login-message {
+    word-wrap: break-word;
+    max-width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.login-message-container {
+    height: 100px;
 }
