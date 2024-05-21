@@ -20,6 +20,8 @@ export const padBitsTo256 = (bits) => {
         const bitsToPad = 256 - bits.length;
         const padding = Array.from('0'.repeat(bitsToPad)).map((n) => Number(n));
         return bits.concat(padding);
+    } else if (bits.length > 256) {
+        return bits.slice(0, 256);
     } else {
         return bits;
     }
