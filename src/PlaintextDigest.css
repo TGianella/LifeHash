@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.plaintext-digest:not(:first-child) {
+    border-top: 1px solid grey;
+}
+
 li > p {
     word-break: break-word;
     max-width: 50%;
