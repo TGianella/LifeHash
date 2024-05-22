@@ -69,7 +69,6 @@ function App() {
       <>
           <LoginModal style={{display: isModalOpen ? "flex" : "none"}} onCloseButtonClick={handleCloseButtonClick}/>
           <div className="app-container">
-              {<LoginPanel hashes={hashes} onButtonClick={handleButtonClick} />}
               <div className="app">
                   <div className="box-wrapper">
                       <PasswordToBits handleSubmit={handleSubmit} seed={seed}/>
@@ -78,6 +77,7 @@ function App() {
                   </div>
                   <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits}/>
               </div>
+              {<LoginPanel hashes={hashes} onButtonClick={handleButtonClick} />}
           </div>
       </>
 
