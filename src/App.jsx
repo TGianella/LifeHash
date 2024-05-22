@@ -87,8 +87,8 @@ function App() {
                           hasInput={hasInput}
                       />
                   </TitleBox>
-                  <TitleBox title="Condensé">
-                      <TextBox className="digest">{shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
+                  <TitleBox title="Encodage">
+                      <TextBox className="digest" title="Condensé">{shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
                   </TitleBox>
               </div>
               {<LoginPanel hashes={hashes} />}

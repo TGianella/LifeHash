@@ -1,0 +1,22 @@
+.login-panel-headers {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10%;
+    font-weight: bold;
+}
+
+.login-panel-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-panel {
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    min-width: 20vw;
+    max-width: 20vw;
+}

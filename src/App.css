@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 60vw;
 }
 
 .app {
@@ -33,19 +34,4 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.login-panel {
-    border: 1px solid grey;
-    display: flex;
-    flex-direction: column;
-    padding-inline: 20px;
-    min-width: 300px;
-    max-width: 300px;
-}
-
-.login-panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }

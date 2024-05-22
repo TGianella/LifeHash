@@ -1,6 +1,6 @@
 .game-of-life-wrapper {
     display: flex;
     align-items: center;
-    gap: 50px;
     width: 100%;
+    justify-content: space-between;
 }
