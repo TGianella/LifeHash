@@ -45,13 +45,21 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+  background: white;
+  color: black;
+  border: 2px solid #4b4b4b;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #646cff;
+  color: white;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+input {
+  background: white;
+}
+
+input::placeholder {
+  color: #c5c5c5;
 }
 
 @media (prefers-color-scheme: light) {

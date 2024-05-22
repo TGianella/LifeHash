@@ -61,15 +61,19 @@ function App() {
         setIsModalOpen(!isModalOpen);
     }
 
+    const handleCloseButtonClick = () => {
+        setIsModalOpen(false);
+    }
+
   return (
       <>
-          <LoginModal style={{display: isModalOpen ? "flex" : "none"}}/>
+          <LoginModal style={{display: isModalOpen ? "flex" : "none"}} onCloseButtonClick={handleCloseButtonClick}/>
           <div className="app-container">
               {<LoginPanel hashes={hashes} onButtonClick={handleButtonClick} />}
               <div className="app">
                   <div className="box-wrapper">
                       <PasswordToBits handleSubmit={handleSubmit} seed={seed}/>
-                      <p className="label green">Encodage et décodage</p>
+                      <p className="label green">Décodage et encodage</p>
                       <BitsToHash resultBits={resultBits}/>
                   </div>
                   <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits}/>

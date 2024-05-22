@@ -5,7 +5,7 @@ import {hashFunction} from "./hashFunction.js";
 
 const initialState = {success: false}
 
-export const LoginModal = ({style}) => {
+export const LoginModal = ({style, onCloseButtonClick}) => {
     const [identifiersList, setIdentifiersList] = useState([]);
     const [triedLogin, setTriedLogin] = useState(false);
     const [login, setLogin] = useState(initialState);
@@ -43,6 +43,7 @@ export const LoginModal = ({style}) => {
 
     return (
         <div className="login-modal" style={style}>
+            <button className="close-modal-button" onClick={onCloseButtonClick}>x</button>
             <div className="login-forms">
                 <Form onSubmit={onRegisterSubmit} actionLabel="S'inscrire"/>
                 <div className="form-separator"></div>
