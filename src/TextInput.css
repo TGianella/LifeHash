@@ -2,11 +2,11 @@
     display: flex;
     gap: 20px;
     align-items: center;
-    margin-block: 30px;
 }
 
 .password-input {
     font-size: 20px;
     padding-block: 10px;
     text-align: center;
+    color: #242424;
 }

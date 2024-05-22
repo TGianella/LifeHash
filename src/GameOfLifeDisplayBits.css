@@ -1,7 +1,6 @@
-.password-bits {
+.game-of-life-display-bits {
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-self: end;
-    gap: 10px;
+    gap: 20px;
 }

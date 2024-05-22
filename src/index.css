@@ -12,6 +12,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --hash-function-background-color: rgb(206, 209, 220);
+  --hash-function-separator-color: grey;
 }
 
 a {

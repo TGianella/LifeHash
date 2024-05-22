@@ -1,11 +1,13 @@
 import './App.css'
 import {useState} from "react";
 import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
-import {PasswordToBits} from "./PasswordToBits.jsx";
-import {BitsToHash} from "./BitsToHash.jsx";
 import {LoginPanel} from "./LoginPanel.jsx";
 import {hashFunction} from "./hashFunction.js";
 import {LoginModal} from "./LoginModal.jsx";
+import {TopBar} from "./TopBar.jsx";
+import {TitleBox} from "./TitleBox.jsx";
+import {TextBox} from "./TextBox.jsx";
+import {bitStreamToBase64} from "./bitStreamToBase64.js";
 
 export const getStringBits = (string) => {
     let res = '';
@@ -33,6 +35,8 @@ function App() {
     const [resultBits, setResultBits] = useState('');
     const [hashes, setHashes] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [globalFinished, setGlobalFinished] = useState(false);
+    const [hasInput, setHasInput] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -42,8 +46,9 @@ function App() {
         const plaintextBits = getStringBits(plaintext);
         const seed = padBitsTo256(plaintextBits.split('')).map((cell) => Number(cell));
 
+        setHasInput(true);
         setSeed(seed);
-        setResultBits('')
+        setResultBits('');
 
         const digest = hashFunction(plaintext);
         const plaintextDigest = {plaintext, digest};
@@ -65,21 +70,30 @@ function App() {
         setIsModalOpen(false);
     }
 
+    const shouldDisplayResults = hasInput && globalFinished && resultBits && resultBits.length;
+
   return (
-      <>
+      <div className="app-container">
           <LoginModal style={{display: isModalOpen ? "flex" : "none"}} onCloseButtonClick={handleCloseButtonClick}/>
-          <div className="app-container">
-              <div className="app">
-                  <div className="box-wrapper">
-                      <PasswordToBits handleSubmit={handleSubmit} seed={seed}/>
-                      <p className="label green">Décodage et encodage</p>
-                      <BitsToHash resultBits={resultBits}/>
-                  </div>
-                  <GameOfLifeHashCSS seed={seed} setResultBits={setResultBits}/>
+          <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick} />
+          <div className="app">
+              <div className="hash-function">
+                  <TitleBox title="Fonction de hachage">
+                      <GameOfLifeHashCSS
+                          seed={seed}
+                          setResultBits={setResultBits}
+                          resultBits={resultBits}
+                          setGlobalFinished={setGlobalFinished}
+                          hasInput={hasInput}
+                      />
+                  </TitleBox>
+                  <TitleBox title="Condensé">
+                      <TextBox className="digest">{shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
+                  </TitleBox>
               </div>
-              {<LoginPanel hashes={hashes} onButtonClick={handleButtonClick} />}
+              {<LoginPanel hashes={hashes} />}
           </div>
-      </>
+      </div>
 
   )
 }

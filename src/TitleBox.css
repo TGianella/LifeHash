@@ -1,0 +1,14 @@
+.title-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: var(--hash-function-background-color);
+    padding: 20px;
+    width: 100%;
+}
+
+.title {
+    margin: 0;
+    align-self: start;
+}

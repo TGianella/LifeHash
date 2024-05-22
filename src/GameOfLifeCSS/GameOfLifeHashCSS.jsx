@@ -1,23 +1,23 @@
-import {Arrow} from "../Arrow.jsx";
-import {GameOfLifeDisplayCSS} from "./GameOfLifeDisplayCSS.jsx";
-import {GameOfLifeCSS} from "./GameOfLifeCSS.jsx";
-import {Universe} from "@tgianella/js-game-of-life";
 import "../GameOfLifeHash.css"
 import "./GameOfLifeHashCSS.css"
-import Blender from "../assets/blender.png"
+import {GameOfLifeDisplayBits} from "../GameOfLifeDisplayBits.jsx";
+import {GameOfLifeBits} from "../GameOfLifeBits.jsx";
 
-export const GameOfLifeHashCSS = ({seed, setResultBits}) => {
-    const universe = new Universe(!seed.length, 16, 16, seed.length ? seed : null);
-
+export const GameOfLifeHashCSS = ({seed, setResultBits, resultBits, setGlobalFinished, hasInput}) => {
     return (
         <div className="game-of-life-wrapper">
-            <GameOfLifeDisplayCSS universe={universe} />
-            <div className="arrow-wrapper">
-                <p className="label red">Fonction de hachage</p>
-                <img src={Blender} width="50"/>
-                <Arrow />
+            <GameOfLifeDisplayBits bits={seed} boxLabel="Bits en clair"/>
+            <div className="separator">
+                <div className="arrow-separator"></div>
             </div>
-            <GameOfLifeCSS key={seed} initialUniverse={universe} setResultBits={setResultBits}/>
+            <GameOfLifeBits
+                initialBits={seed}
+                setResultBits={setResultBits}
+                boxLabel="Bits hachés"
+                resultBits={resultBits}
+                setGlobalFinished={setGlobalFinished}
+                hasInput={hasInput}
+            />
         </div>
     )
 }

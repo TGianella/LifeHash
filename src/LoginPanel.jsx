@@ -1,11 +1,10 @@
 import {PlaintextDigest} from "./PlaintextDigest.jsx";
 
-export const LoginPanel = ({hashes, onButtonClick}) => {
+export const LoginPanel = ({hashes}) => {
     return (
         <div className="login-panel">
             <div className="login-panel-header">
-                <h3>Condensés</h3>
-                <button onClick={onButtonClick} style={{padding: "10px"}}>Connexion</button>
+                <h3>Liste des condensés</h3>
             </div>
             <ul style={{listStyle: "none", padding: 0}}>
                 {hashes.map(({plaintext, digest}) => <PlaintextDigest plaintext={plaintext} digest={digest} />)}
