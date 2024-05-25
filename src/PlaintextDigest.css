@@ -1,7 +1,8 @@
 .plaintext-digest {
     display: flex;
     gap: 20px;
-    max-width: 100%;
+    min-width: 18vw;
+    max-width: 18vw;
     align-items: center;
 }
 

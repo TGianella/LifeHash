@@ -14,21 +14,23 @@
 }
 
 .separator {
-    width: 1px;
-    height: 100%;
-    background: var(--hash-function-separator-color);
+    width: 2px;
+    height: 50vh;
+    background: var(--tertiary-color);
     position: relative;
 }
 
 .arrow-separator {
-    --arrow-separator-size: 50px;
+    --arrow-separator-size: 3vw;
+    --arrow-initial-offset: calc(var(--arrow-separator-size) / -2);
     width: var(--arrow-separator-size);
     height: var(--arrow-separator-size);
     position: absolute;
-    top: 60%;
-    left: calc(var(--arrow-separator-size) / -2);
+    top: 55%;
+    left: calc(var(--arrow-initial-offset) + 2px);
     rotate: 45deg;
-    background: var(--hash-function-background-color);
-    border-right: 1px solid var(--hash-function-separator-color);
-    border-top: 1px solid var(--hash-function-separator-color);
+    background: var(--secondary-color);
+    border-right: 2px solid var(--tertiary-color);
+    border-top: 2px solid var(--tertiary-color);
+    clip-path: polygon(100% 0, 100% 100%, 90% 100%, 0 10%, 0 0);
 }

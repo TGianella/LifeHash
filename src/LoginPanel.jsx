@@ -5,7 +5,7 @@ export const LoginPanel = ({hashes}) => {
     return (
         <div className="login-panel">
             <div className="login-panel-title">
-                <h3>Liste des condensés</h3>
+                <span>Liste des condensés</span>
             </div>
             <div className="login-panel-headers">
                 <span style={{wordWrap: "break-word", maxWidth: "50%", textAlign: "center"}}>Mot de passe en clair</span>

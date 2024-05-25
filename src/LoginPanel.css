@@ -4,19 +4,29 @@
     justify-content: start;
     gap: 10%;
     font-weight: bold;
+
+    > * {
+        flex: 1 1 0px;
+    }
 }
 
 .login-panel-title {
+    margin-block: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: uppercase;
 }
 
 .login-panel {
-    border: 1px solid grey;
+    grid-column: 2;
+    grid-row: 2 / 4;
+    border: 2px solid var(--tertiary-color);
+    background: var(--secondary-color);
     display: flex;
     flex-direction: column;
     padding-inline: 20px;
     min-width: 20vw;
-    max-width: 20vw;
 }

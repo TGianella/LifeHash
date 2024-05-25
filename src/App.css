@@ -11,9 +11,13 @@
     width: 60vw;
 }
 
-.app {
-    display: flex;
-    gap: 40px;
+.app-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    grid-template-rows: 1fr 8fr 3fr;
+    max-width: 90vw;
+    margin-top: 20px;
 }
 
 .box-wrapper {

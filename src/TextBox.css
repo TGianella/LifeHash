@@ -1,17 +1,16 @@
 .text-box {
-    max-width: 400px;
+    min-width: 20vw;
+    max-width: 20vw;
     text-overflow: ellipsis;
     overflow: hidden;
     margin-block: 0;
-
-}
-
-fieldset {
-    width: 400px;
-    max-width: 400px;
-    min-height: 65px;
+    height: 3vh;
 }
 
 .digest {
-    max-width: 1000px;
+    min-width: 48vw;
+    max-width: 48vw;
+    height: 4.5vh;
+    font-size: 1.5em;
+    text-align: center;
 }

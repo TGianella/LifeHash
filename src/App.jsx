@@ -53,7 +53,7 @@ function App() {
         const digest = hashFunction(plaintext);
         const plaintextDigest = {plaintext, digest};
         setTimeout(() => {
-            if (hashes.length < 5) {
+            if (hashes.length < 4) {
                 setHashes(hashes.concat(plaintextDigest));
             } else {
                 setHashes(hashes.slice(1).concat(plaintextDigest));
@@ -75,23 +75,21 @@ function App() {
   return (
       <div className="app-container">
           <LoginModal style={{display: isModalOpen ? "flex" : "none"}} onCloseButtonClick={handleCloseButtonClick}/>
-          <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick} />
-          <div className="app">
-              <div className="hash-function">
-                  <TitleBox title="Fonction de hachage">
-                      <GameOfLifeHashCSS
-                          seed={seed}
-                          setResultBits={setResultBits}
-                          resultBits={resultBits}
-                          setGlobalFinished={setGlobalFinished}
-                          hasInput={hasInput}
-                      />
-                  </TitleBox>
-                  <TitleBox title="Encodage">
-                      <TextBox className="digest" title="Condensé">{shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
-                  </TitleBox>
-              </div>
-              {<LoginPanel hashes={hashes} />}
+          <div className="app-grid">
+              <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick} />
+              <TitleBox title="Fonction de hachage" className="hash-function-grid">
+                  <GameOfLifeHashCSS
+                      seed={seed}
+                      setResultBits={setResultBits}
+                      resultBits={resultBits}
+                      setGlobalFinished={setGlobalFinished}
+                      hasInput={hasInput}
+                  />
+              </TitleBox>
+              <TitleBox title="Encodage" className="encoding">
+                  <TextBox className="digest" title="Condensé">{shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
+              </TitleBox>
+          {<LoginPanel hashes={hashes} />}
           </div>
       </div>
 

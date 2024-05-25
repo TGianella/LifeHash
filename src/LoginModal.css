@@ -7,8 +7,8 @@
     transform: translateX(calc(var(--modal-width) / -2)) translateY(calc(var(--modal-height) / -2));
     width: var(--modal-width);
     height: var(--modal-height);
-    background: white;
-    border: 2px solid grey;
+    background: var(--secondary-color);
+    border: 2px solid var(--tertiary-color);
     box-shadow: 5px 10px 20px black;
 
     display: flex;
@@ -17,7 +17,7 @@
     gap: 50px;
     align-items: center;
     font-size: 40px;
-    z-index: 10;
+    z-index: 100;
 }
 
 .login-forms {
@@ -29,8 +29,8 @@
 
 .form-separator {
     height: calc(var(--modal-height) / 2);
-    width: 1px;
-    background: grey;
+    width: 2px;
+    background: var(--tertiary-color);
 }
 
 .form {

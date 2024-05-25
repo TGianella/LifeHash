@@ -1,9 +1,9 @@
 import './TitleBox.css';
 
-export const TitleBox = ({title, children}) => {
+export const TitleBox = ({title, children, className}) => {
     return (
-        <div className="title-box">
-            <h3 className="title">{title}</h3>
+        <div className={`${className} title-box`}>
+            <span className="title">{title}</span>
             {children}
         </div>
     )
