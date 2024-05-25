@@ -1,7 +1,7 @@
 import './App.css'
 import {useState} from "react";
 import {HashFunction} from "./components/HashFunction/HashFunction.jsx";
-import {LoginPanel} from "./components/LoginPanel/LoginPanel.jsx";
+import {DigestList} from "./components/DigestList/DigestList.jsx";
 import {hashFunction} from "./utils/hashFunction.js";
 import {LoginModal} from "./components/LoginModal/LoginModal.jsx";
 import {TopBar} from "./components/TopBar/TopBar.jsx";
@@ -72,7 +72,7 @@ function App() {
               <TitleBox title="Encodage" className="encoding">
                   <TextBox className="digest" title="Condensé">{shouldDisplayResults ? hashUtils(resultBits.split('')) : '' }</TextBox>
               </TitleBox>
-          {<LoginPanel hashes={hashes} />}
+          {<DigestList hashes={hashes} />}
           </div>
       </div>
 

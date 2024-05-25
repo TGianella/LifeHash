@@ -1,14 +1,14 @@
 import {PlaintextDigest} from "../PlaintextDigest/PlaintextDigest.jsx";
-import './LoginPanel.css';
+import './DigestList.css';
 
-export const LoginPanel = ({hashes}) => {
+export const DigestList = ({hashes}) => {
     return (
-        <div className="login-panel">
-            <div className="login-panel-title">
+        <div className="digest-list">
+            <div className="digest-list-title">
                 <span>Liste des condensés</span>
             </div>
-            <div className="login-panel-headers">
-                <span style={{wordWrap: "break-word", maxWidth: "50%", textAlign: "center"}}>Mot de passe en clair</span>
+            <div className="digest-list-headers">
+                <span style={{wordWrap: "break-word", maxWidth: "50%", textAlign: "center"}}>Mot de passe</span>
                 <span>Condensé</span>
             </div>
             <ul style={{listStyle: "none", padding: 0}}>

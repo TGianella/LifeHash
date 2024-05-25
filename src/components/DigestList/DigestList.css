@@ -1,4 +1,4 @@
-.login-panel-headers {
+.digest-list-headers {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -10,7 +10,7 @@
     }
 }
 
-.login-panel-title {
+.digest-list-title {
     margin-block: 20px;
     font-size: 1.5em;
     font-weight: bold;
@@ -20,7 +20,7 @@
     text-transform: uppercase;
 }
 
-.login-panel {
+.digest-list {
     grid-column: 2;
     grid-row: 2 / 4;
     border: 2px solid var(--tertiary-color);
