@@ -16,6 +16,7 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [globalFinished, setGlobalFinished] = useState(false);
     const [hasInput, setHasInput] = useState(false);
+    const [hashesCount, setHashesCount] = useState(0);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +31,10 @@ function App() {
         setResultBits('');
 
         const digest = hashFunction(plaintext);
-        const plaintextDigest = {plaintext, digest};
+        const plaintextDigest = {plaintext, digest, index: hashesCount};
+
+        setHashesCount(hashesCount + 1);
+
         setTimeout(() => {
             if (hashes.length < 4) {
                 setHashes(hashes.concat(plaintextDigest));

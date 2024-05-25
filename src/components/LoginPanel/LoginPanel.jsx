@@ -12,7 +12,7 @@ export const LoginPanel = ({hashes}) => {
                 <span>Condensé</span>
             </div>
             <ul style={{listStyle: "none", padding: 0}}>
-                {hashes.map(({plaintext, digest}) => <PlaintextDigest plaintext={plaintext} digest={digest} />)}
+                {hashes.map(({plaintext, digest, index}) => <PlaintextDigest key={index} plaintext={plaintext} digest={digest} />)}
             </ul>
         </div>
     )
