@@ -1,4 +1,4 @@
-import {PlaintextDigest} from "./PlaintextDigest.jsx";
+import {PlaintextDigest} from "../PlaintextDigest/PlaintextDigest.jsx";
 import './LoginPanel.css';
 
 export const LoginPanel = ({hashes}) => {

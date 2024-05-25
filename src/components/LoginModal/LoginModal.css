@@ -33,25 +33,6 @@
     background: var(--tertiary-color);
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
-    justify-content: start;
-
-    input {
-        font-size: 30px;
-        text-align: center;
-        padding: 5px 10px;
-        color: #242424;
-    }
-
-    button {
-        margin-top: 10px;
-    }
-}
-
 .login-message {
     word-wrap: break-word;
     max-width: 100%;
@@ -64,13 +45,6 @@
     height: 60px;
     display: flex;
     align-items: center;
-}
-
-.form-inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
 }
 
 .close-modal-button {

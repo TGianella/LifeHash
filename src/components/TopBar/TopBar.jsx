@@ -1,4 +1,4 @@
-import {TextInput} from "./TextInput.jsx";
+import {TextInput} from "../TextInput/TextInput.jsx";
 import './TopBar.css'
 export const TopBar = ({onSubmit, onButtonClick}) => {
     return (

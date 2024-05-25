@@ -1,7 +1,7 @@
 import './LoginModal.css'
-import {Form} from "./Form.jsx";
+import {UserForm} from "../UserForm/UserForm.jsx";
 import {useState} from "react";
-import {hashFunction} from "./hashFunction.js";
+import {hashFunction} from "../../hashFunction.js";
 
 const initialState = {success: false}
 
@@ -45,9 +45,9 @@ export const LoginModal = ({style, onCloseButtonClick}) => {
         <div className="login-modal" style={style}>
             <button className="close-modal-button" onClick={onCloseButtonClick}>x</button>
             <div className="login-forms">
-                <Form onSubmit={onRegisterSubmit} actionLabel="S'inscrire"/>
+                <UserForm onSubmit={onRegisterSubmit} actionLabel="S'inscrire"/>
                 <div className="form-separator"></div>
-                <Form onSubmit={onLoginSubmit} actionLabel="Se connecter" login={login}/>
+                <UserForm onSubmit={onLoginSubmit} actionLabel="Se connecter" login={login}/>
             </div>
             <div className="login-message-container">
                 {triedLogin ?

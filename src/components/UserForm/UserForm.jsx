@@ -1,6 +1,8 @@
-export const Form = ({onSubmit, actionLabel}) => {
+import './UserForm.css'
+
+export const UserForm = ({onSubmit, actionLabel}) => {
     return (
-        <form className="form" onSubmit={onSubmit}>
+        <form className="user-form" onSubmit={onSubmit}>
             <div className="form-inputs">
                 <input name="username" placeholder="Nom d'utilisateur" autoComplete="off"/>
                 <input name="password" placeholder="Mot de passe" autoComplete="off"/>

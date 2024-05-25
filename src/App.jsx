@@ -1,12 +1,12 @@
 import './App.css'
 import {useState} from "react";
 import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
-import {LoginPanel} from "./LoginPanel.jsx";
+import {LoginPanel} from "./components/LoginPanel/LoginPanel.jsx";
 import {hashFunction} from "./hashFunction.js";
-import {LoginModal} from "./LoginModal.jsx";
-import {TopBar} from "./TopBar.jsx";
-import {TitleBox} from "./TitleBox.jsx";
-import {TextBox} from "./TextBox.jsx";
+import {LoginModal} from "./components/LoginModal/LoginModal.jsx";
+import {TopBar} from "./components/TopBar/TopBar.jsx";
+import {TitleBox} from "./components/TitleBox/TitleBox.jsx";
+import {TextBox} from "./components/TextBox/TextBox.jsx";
 import {bitStreamToBase64} from "./bitStreamToBase64.js";
 
 export const getStringBits = (string) => {
