@@ -1,6 +1,6 @@
 import {TextBox} from "../TextBox/TextBox.jsx";
 import './BitsGrid.css'
-import {GameOfLifeDisplayCSS} from "../../GameOfLifeCSS/GameOfLifeDisplayCSS.jsx";
+import {GridDisplay} from "../GridDisplay/GridDisplay.jsx";
 import {Universe} from "@tgianella/js-game-of-life";
 
 export const BitsGrid = ({bits, boxLabel}) => {
@@ -8,7 +8,7 @@ export const BitsGrid = ({bits, boxLabel}) => {
     return (
         <div className="bits-grid">
             <TextBox title={boxLabel}>{bits}</TextBox>
-            <GameOfLifeDisplayCSS universe={universe} />
+            <GridDisplay universe={universe} />
         </div>
     )
 }

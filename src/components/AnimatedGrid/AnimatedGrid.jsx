@@ -1,10 +1,8 @@
-import {GameOfLifeDisplayCSS} from "./GameOfLifeDisplayCSS.jsx";
+import {GridDisplay} from "../GridDisplay/GridDisplay.jsx";
 import {Universe} from "@tgianella/js-game-of-life";
 import {useEffect, useState} from "react";
 
-
-
-export const GameOfLifeCSS = ({initialUniverse, setResultBits, setGlobalFinished}) => {
+export const AnimatedGrid = ({initialUniverse, setResultBits, setGlobalFinished}) => {
     const [generations, setGenerations] = useState(1);
     const [universe, setUniverse] = useState(initialUniverse);
     const [finished, setFinished] = useState(false);
@@ -36,5 +34,5 @@ export const GameOfLifeCSS = ({initialUniverse, setResultBits, setGlobalFinished
         };
     });
 
-    return <GameOfLifeDisplayCSS universe={universe} />
+    return <GridDisplay universe={universe} />
 }

@@ -1,7 +1,7 @@
 import './LoginModal.css'
 import {UserForm} from "../UserForm/UserForm.jsx";
 import {useState} from "react";
-import {hashFunction} from "../../hashFunction.js";
+import {hashFunction} from "../../utils/hashFunction.js";
 
 const initialState = {success: false}
 

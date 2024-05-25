@@ -1,11 +1,10 @@
-import "../GameOfLifeHash.css"
-import "./GameOfLifeHashCSS.css"
-import {BitsGrid} from "../components/BitsGrid/BitsGrid.jsx";
-import {BitsGridAnimated} from "../components/BitsGrid/BitsGridAnimated.jsx";
+import "./HashFunction.css"
+import {BitsGrid} from "../BitsGrid/BitsGrid.jsx";
+import {BitsGridAnimated} from "../BitsGrid/BitsGridAnimated.jsx";
 
-export const GameOfLifeHashCSS = ({seed, setResultBits, resultBits, setGlobalFinished, hasInput}) => {
+export const HashFunction = ({seed, setResultBits, resultBits, setGlobalFinished, hasInput}) => {
     return (
-        <div className="game-of-life-wrapper">
+        <div className="hash-function-wrapper">
             <BitsGrid bits={seed} boxLabel="Bits en clair"/>
             <div className="separator">
                 <div className="arrow-separator"></div>

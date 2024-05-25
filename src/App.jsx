@@ -1,34 +1,13 @@
 import './App.css'
 import {useState} from "react";
-import {GameOfLifeHashCSS} from "./GameOfLifeCSS/GameOfLifeHashCSS.jsx";
+import {HashFunction} from "./components/HashFunction/HashFunction.jsx";
 import {LoginPanel} from "./components/LoginPanel/LoginPanel.jsx";
-import {hashFunction} from "./hashFunction.js";
+import {hashFunction} from "./utils/hashFunction.js";
 import {LoginModal} from "./components/LoginModal/LoginModal.jsx";
 import {TopBar} from "./components/TopBar/TopBar.jsx";
 import {TitleBox} from "./components/TitleBox/TitleBox.jsx";
 import {TextBox} from "./components/TextBox/TextBox.jsx";
-import {bitStreamToBase64} from "./bitStreamToBase64.js";
-
-export const getStringBits = (string) => {
-    let res = '';
-    for (let i = 0; i < string.length; i++) {
-        res += string.charCodeAt(i).toString(2);
-    }
-
-    return res;
-}
-
-export const padBitsTo256 = (bits) => {
-    if (bits.length < 256) {
-        const bitsToPad = 256 - bits.length;
-        const padding = Array.from('0'.repeat(bitsToPad)).map((n) => Number(n));
-        return bits.concat(padding);
-    } else if (bits.length > 256) {
-        return bits.slice(0, 256);
-    } else {
-        return bits;
-    }
-}
+import {getStringBits, hashUtils, padBitsTo256} from "./utils/hash.utils.js";
 
 function App() {
     const [seed, setSeed] = useState([]);
@@ -78,7 +57,7 @@ function App() {
           <div className="app-grid">
               <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick} />
               <TitleBox title="Fonction de hachage" className="hash-function-grid">
-                  <GameOfLifeHashCSS
+                  <HashFunction
                       seed={seed}
                       setResultBits={setResultBits}
                       resultBits={resultBits}
@@ -87,7 +66,7 @@ function App() {
                   />
               </TitleBox>
               <TitleBox title="Encodage" className="encoding">
-                  <TextBox className="digest" title="Condensé">{shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : '' }</TextBox>
+                  <TextBox className="digest" title="Condensé">{shouldDisplayResults ? hashUtils(resultBits.split('')) : '' }</TextBox>
               </TitleBox>
           {<LoginPanel hashes={hashes} />}
           </div>

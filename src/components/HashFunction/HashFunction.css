@@ -34,3 +34,11 @@
     border-top: 2px solid var(--tertiary-color);
     clip-path: polygon(100% 0, 100% 100%, 90% 100%, 0 10%, 0 0);
 }
+
+.hash-function-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: 3vw;
+}

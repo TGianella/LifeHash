@@ -1,6 +1,5 @@
 import {Universe} from "@tgianella/js-game-of-life";
-import {getStringBits, padBitsTo256} from "./App.jsx";
-import {bitStreamToBase64} from "./bitStreamToBase64.js";
+import {getStringBits, hashUtils, padBitsTo256} from "./hash.utils.js";
 
 export const hashFunction = (plaintext) => {
     const plaintextBits = getStringBits(plaintext);
@@ -10,5 +9,5 @@ export const hashFunction = (plaintext) => {
         universe.tick();
     }
     const resultBits = universe.cells.map(cell => cell.state);
-    return bitStreamToBase64(resultBits);
+    return hashUtils(resultBits);
 }
