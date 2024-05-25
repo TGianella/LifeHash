@@ -4,9 +4,8 @@
   font-weight: 400;
   font-size: 22px;
 
-
-  --primary-color: yellow;
-  --secondary-color: #FEF247;
+  --primary-color: #ffeb03;
+  --secondary-color: #ffd400;
   --tertiary-color: #2f2f2f;
   --accent-color: white;
 
@@ -65,7 +64,7 @@ button:hover {
 }
 
 input {
-  background: var(--primary-color);
+  background: var(--accent-color);
   border: 2px solid var(--tertiary-color);
 }
 

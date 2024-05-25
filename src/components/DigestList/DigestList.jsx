@@ -8,7 +8,7 @@ export const DigestList = ({hashes}) => {
                 <span>Liste des condensés</span>
             </div>
             <div className="digest-list-headers">
-                <span style={{wordWrap: "break-word", maxWidth: "50%", textAlign: "center"}}>Mot de passe</span>
+                <span style={{wordWrap: "break-word", maxWidth: "50%"}}>Mot de passe</span>
                 <span>Condensé</span>
             </div>
             <ul style={{listStyle: "none", padding: 0}}>
