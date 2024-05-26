@@ -5,7 +5,7 @@ export const DigestList = ({hashes}) => {
     return (
         <div className="digest-list">
             <div className="digest-list-title">
-                <span>Liste des condensés</span>
+                <span>Condensés</span>
             </div>
             <div className="digest-list-headers">
                 <span style={{wordWrap: "break-word", maxWidth: "50%"}}>Mot de passe</span>

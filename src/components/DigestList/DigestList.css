@@ -16,8 +16,9 @@
     font-weight: bold;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .digest-list {
