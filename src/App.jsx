@@ -49,32 +49,36 @@ function App() {
         setIsModalOpen(!isModalOpen);
     }
 
-    const handleCloseButtonClick = () => {
+    const handleCloseModalClick = () => {
         setIsModalOpen(false);
     }
 
     const shouldDisplayResults = hasInput && globalFinished && resultBits && resultBits.length;
 
   return (
-      <div className="app-container">
-          <LoginModal style={{display: isModalOpen ? "flex" : "none"}} onCloseButtonClick={handleCloseButtonClick}/>
-          <div className="app-grid">
-              <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick} />
-              <TitleBox title="Fonction de hachage" className="hash-function-grid">
-                  <HashFunction
-                      seed={seed}
-                      setResultBits={setResultBits}
-                      resultBits={resultBits}
-                      setGlobalFinished={setGlobalFinished}
-                      hasInput={hasInput}
-                  />
-              </TitleBox>
-              <TitleBox title="Encodage" className="encoding">
-                  <TextBox className="digest" title="Condensé">{shouldDisplayResults ? hashUtils(resultBits.split('')) : '' }</TextBox>
-              </TitleBox>
-          {<DigestList hashes={hashes} />}
+      <>
+          <LoginModal style={{display: isModalOpen ? "flex" : "none"}} onCloseButtonClick={handleCloseModalClick}/>
+          <div className="app-container">
+              <div className="app-grid">
+                  <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick}/>
+                  <TitleBox title="Fonction de hachage" className="hash-function-grid">
+                      <HashFunction
+                          seed={seed}
+                          setResultBits={setResultBits}
+                          resultBits={resultBits}
+                          setGlobalFinished={setGlobalFinished}
+                          hasInput={hasInput}
+                      />
+                  </TitleBox>
+                  <TitleBox title="Encodage" className="encoding">
+                      <TextBox className="digest"
+                               title="Condensé">{shouldDisplayResults ? hashUtils(resultBits.split('')) : ''}</TextBox>
+                  </TitleBox>
+                  {<DigestList hashes={hashes}/>}
+              </div>
           </div>
-      </div>
+      </>
+
 
   )
 }

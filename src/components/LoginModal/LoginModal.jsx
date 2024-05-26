@@ -42,18 +42,20 @@ export const LoginModal = ({style, onCloseButtonClick}) => {
     };
 
     return (
-        <div className="login-modal" style={style}>
-            <button className="close-modal-button" onClick={onCloseButtonClick}>x</button>
-            <div className="login-forms">
-                <UserForm onSubmit={onRegisterSubmit} actionLabel="S'inscrire"/>
-                <div className="form-separator"></div>
-                <UserForm onSubmit={onLoginSubmit} actionLabel="Se connecter" login={login}/>
-            </div>
-            <div className="login-message-container">
-                {triedLogin ?
-                    login && login.success ? <span className="login-message">Bienvenue {login.username} ! 👍</span> :
-                        <span className="login-message">Identifiants invalides 🧐</span>
-                    : registered ? <span className="login-message">Nouveau compte créé 🎉</span> : null}
+        <div className="login-modal-background" style={style} onClick={onCloseButtonClick}>
+            <div className="login-modal">
+                <button className="close-modal-button" onClick={onCloseButtonClick}>x</button>
+                <div className="login-forms">
+                    <UserForm onSubmit={onRegisterSubmit} actionLabel="S'inscrire"/>
+                    <div className="form-separator"></div>
+                    <UserForm onSubmit={onLoginSubmit} actionLabel="Se connecter" login={login}/>
+                </div>
+                <div className="login-message-container">
+                    {triedLogin ?
+                        login && login.success ? <span className="login-message">Bienvenue {login.username} ! 👍</span> :
+                            <span className="login-message">Identifiants invalides 🧐</span>
+                        : registered ? <span className="login-message">Nouveau compte créé 🎉</span> : null}
+                </div>
             </div>
         </div>
     )
