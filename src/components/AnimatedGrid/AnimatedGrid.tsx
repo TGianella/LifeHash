@@ -1,21 +1,19 @@
 import {GridDisplay} from "../GridDisplay/GridDisplay.tsx";
 import {computeNextGeneration} from "@tgianella/js-game-of-life";
-import React, {useEffect, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {Cells} from "../../types.tsx";
 
 type AnimatedGridProps = {
-    initialUniverse: Cells;
-    setResultBits: React.Dispatch<React.SetStateAction<string>>;
-    setGlobalFinished: React.Dispatch<React.SetStateAction<boolean>>;
+    seed: Cells;
+    setResultBits: Dispatch<SetStateAction<string>>;
+    setGlobalFinished: Dispatch<SetStateAction<boolean>>;
 }
 
-export const AnimatedGrid = ({initialUniverse, setResultBits, setGlobalFinished}: AnimatedGridProps) => {
+export const AnimatedGrid = ({seed, setResultBits, setGlobalFinished}: AnimatedGridProps) => {
     const [generations, setGenerations] = useState(1);
-    //TODO: replace Seed with FunctionCells
-    const [universe, setUniverse] = useState<Cells>(initialUniverse);
+    const [universe, setUniverse] = useState<Cells>(seed);
     const [finished, setFinished] = useState(false);
     setGlobalFinished(finished);
-
 
     useEffect(() => {
         let interval: number;
@@ -40,5 +38,5 @@ export const AnimatedGrid = ({initialUniverse, setResultBits, setGlobalFinished}
         };
     }, [generations, finished, setResultBits, universe]);
 
-    return <GridDisplay universe={universe} />
+    return <GridDisplay cells={universe} />
 }

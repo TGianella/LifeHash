@@ -1,24 +1,26 @@
 import {TextBox} from "../TextBox/TextBox.tsx";
 import {AnimatedGrid} from "../AnimatedGrid/AnimatedGrid.tsx";
-import React from "react";
+import {Dispatch, SetStateAction} from "react";
 import {Cells} from "../../types.tsx";
 
 type BitsGridAnimatedProps = {
-    initialBits: Cells;
-    setResultBits: React.Dispatch<React.SetStateAction<string>>;
+    seed: Cells;
+    setResultBits: Dispatch<SetStateAction<string>>;
     resultBits: string;
     boxLabel: string;
-    setGlobalFinished: React.Dispatch<React.SetStateAction<boolean>>;
+    setGlobalFinished: Dispatch<SetStateAction<boolean>>;
     hasInput: boolean;
 }
 
-export const BitsGridAnimated = ({initialBits, setResultBits, resultBits, boxLabel, setGlobalFinished, hasInput}: BitsGridAnimatedProps) => {
+//TODO: refactor to use only one generic component BitsGrid with a prop to animate it
+
+export const BitsGridAnimated = ({seed, setResultBits, resultBits, boxLabel, setGlobalFinished, hasInput}: BitsGridAnimatedProps) => {
     return (
         <div className="bits-grid">
             <TextBox title={boxLabel}>{hasInput ? resultBits : ''}</TextBox>
             <AnimatedGrid
-                key={initialBits.join('')}
-                initialUniverse={initialBits}
+                key={seed.join('')}
+                seed={seed}
                 setResultBits={setResultBits}
                 setGlobalFinished={setGlobalFinished}
             />

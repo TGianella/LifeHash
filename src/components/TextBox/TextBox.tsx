@@ -1,8 +1,9 @@
 import './TextBox.css'
+import {ReactNode} from "react";
 
 type TextBoxProps = {
     className?: string;
-    children: React.ReactNode;
+    children: ReactNode;
     title: string;
 };
 

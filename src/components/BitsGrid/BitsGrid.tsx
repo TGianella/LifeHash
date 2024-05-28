@@ -4,15 +4,15 @@ import {GridDisplay} from "../GridDisplay/GridDisplay.tsx";
 import {Cells} from "../../types.tsx";
 
 type BitsGridProps = {
-    bits: Cells;
+    cells: Cells;
     boxLabel: string;
 }
 
-export const BitsGrid = ({bits, boxLabel}: BitsGridProps) => {
+export const BitsGrid = ({cells, boxLabel}: BitsGridProps) => {
     return (
         <div className="bits-grid">
-            <TextBox title={boxLabel}>{bits}</TextBox>
-            <GridDisplay universe={bits} />
+            <TextBox title={boxLabel}>{cells}</TextBox>
+            <GridDisplay cells={cells} />
         </div>
     )
 }

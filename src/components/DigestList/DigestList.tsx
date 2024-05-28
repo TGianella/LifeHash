@@ -1,14 +1,9 @@
 import {PlaintextDigest} from "../PlaintextDigest/PlaintextDigest.tsx";
 import './DigestList.css';
-
-type Hash = {
-    plaintext: string;
-    digest: string;
-    index: number;
-}
+import {Hashes} from "../../types.tsx";
 
 type DigestListProps = {
-    hashes: Hash[];
+    hashes: Hashes;
 }
 
 export const DigestList = ({hashes}: DigestListProps) => {

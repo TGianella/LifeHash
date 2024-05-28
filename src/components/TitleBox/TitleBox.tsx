@@ -1,8 +1,9 @@
 import './TitleBox.css';
+import {ReactNode} from "react";
 
 type TitleBoxProps = {
     title: string;
-    children: React.ReactNode;
+    children: ReactNode;
     className: string;
 }
 

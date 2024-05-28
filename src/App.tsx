@@ -8,18 +8,12 @@ import {TopBar} from "./components/TopBar/TopBar.tsx";
 import {TitleBox} from "./components/TitleBox/TitleBox.tsx";
 import {TextBox} from "./components/TextBox/TextBox.tsx";
 import {getStringBits, bitStreamToBase64, padBitsTo256} from "./utils/hashUtils.ts";
-import {Cells} from "./types.tsx";
-
-type Hash = {
-    plaintext: string;
-    digest: string;
-    index: number;
-}
+import {Cells, Hashes} from "./types.tsx";
 
 function App() {
     const [seed, setSeed] = useState<Cells>([]);
     const [resultBits, setResultBits] = useState('');
-    const [hashes, setHashes] = useState<Hash[]>([]);
+    const [hashes, setHashes] = useState<Hashes>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [globalFinished, setGlobalFinished] = useState(false);
     const [hasInput, setHasInput] = useState(false);
@@ -48,7 +42,6 @@ function App() {
             } else {
                 setHashes(hashes.slice(1).concat(plaintextDigest));
             }
-
         }, 3000)
     }
 
