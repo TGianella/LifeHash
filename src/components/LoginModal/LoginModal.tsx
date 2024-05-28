@@ -58,8 +58,8 @@ export const LoginModal = ({style, onCloseButtonClick}: LoginModalProps) => {
     };
 
     return (
-        <div className="login-modal-background" style={style}>
-            <div className="login-modal">
+        <div className="login-modal-background" style={style} onClick={onCloseButtonClick}>
+            <div className="login-modal" onClick={(event) => event.stopPropagation()}>
                 <button className="close-modal-button" onClick={onCloseButtonClick}>x</button>
                 <div className="login-forms">
                     <UserForm onSubmit={onRegisterSubmit} actionLabel="S'inscrire"/>
