@@ -1,16 +1,22 @@
-import {GridDisplay} from "../GridDisplay/GridDisplay.jsx";
+import {GridDisplay} from "../GridDisplay/GridDisplay.tsx";
 import {Universe} from "@tgianella/js-game-of-life";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
-export const AnimatedGrid = ({initialUniverse, setResultBits, setGlobalFinished}) => {
+type AnimatedGridProps = {
+    initialUniverse: Universe;
+    setResultBits: React.Dispatch<React.SetStateAction<string>>;
+    setGlobalFinished: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const AnimatedGrid = ({initialUniverse, setResultBits, setGlobalFinished}: AnimatedGridProps) => {
     const [generations, setGenerations] = useState(1);
-    const [universe, setUniverse] = useState(initialUniverse);
+    const [universe, setUniverse] = useState<Universe>(initialUniverse);
     const [finished, setFinished] = useState(false);
     setGlobalFinished(finished);
 
 
     useEffect(() => {
-        let interval;
+        let interval: number;
 
         if (!finished) {
             if (generations < 50) {
@@ -32,7 +38,7 @@ export const AnimatedGrid = ({initialUniverse, setResultBits, setGlobalFinished}
         return () => {
             clearInterval(interval);
         };
-    });
+    }, [generations, finished, universe.width, universe.height, universe.cellSize, setResultBits]);
 
     return <GridDisplay universe={universe} />
 }

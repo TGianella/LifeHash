@@ -1,6 +1,6 @@
 import {TextBox} from "../TextBox/TextBox.jsx";
 import {Universe} from "@tgianella/js-game-of-life";
-import {AnimatedGrid} from "../AnimatedGrid/AnimatedGrid.jsx";
+import {AnimatedGrid} from "../AnimatedGrid/AnimatedGrid.tsx";
 
 export const BitsGridAnimated = ({initialBits, setResultBits, resultBits, boxLabel, setGlobalFinished, hasInput}) => {
     const universe = new Universe(!initialBits.length, 16, 16, initialBits.length ? initialBits : null);
