@@ -1,6 +1,11 @@
 import './TextInput.css';
+import {FormEvent} from "react";
 
-export const TextInput = ({onSubmit}) => {
+type TextInputProps = {
+    onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+}
+
+export const TextInput = ({onSubmit}: TextInputProps) => {
     return (
         <form className="password-form" onSubmit={onSubmit}>
             <input className="password-input" name="plaintext" placeholder="Mot de passe" autoComplete="off" />

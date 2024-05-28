@@ -1,6 +1,12 @@
 import './UserForm.css'
+import {FormEvent} from "react";
 
-export const UserForm = ({onSubmit, actionLabel}) => {
+type UserFormProps = {
+    onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+    actionLabel: string;
+}
+
+export const UserForm = ({onSubmit, actionLabel}: UserFormProps) => {
     return (
         <form className="user-form" onSubmit={onSubmit}>
             <div className="form-inputs">

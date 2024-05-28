@@ -1,8 +1,18 @@
 import "./HashFunction.css"
-import {BitsGrid} from "../BitsGrid/BitsGrid.jsx";
-import {BitsGridAnimated} from "../BitsGrid/BitsGridAnimated.jsx";
+import {BitsGrid} from "../BitsGrid/BitsGrid.tsx";
+import {BitsGridAnimated} from "../BitsGrid/BitsGridAnimated.tsx";
+import {Seed} from "../../types.tsx";
+import React from "react";
 
-export const HashFunction = ({seed, setResultBits, resultBits, setGlobalFinished, hasInput}) => {
+type HashFunctionProps = {
+    seed: Seed;
+    setResultBits: React.Dispatch<React.SetStateAction<string>>;
+    resultBits: string;
+    setGlobalFinished: React.Dispatch<React.SetStateAction<boolean>>;
+    hasInput: boolean;
+}
+
+export const HashFunction = ({seed, setResultBits, resultBits, setGlobalFinished, hasInput}: HashFunctionProps) => {
     return (
         <div className="hash-function-wrapper">
             <BitsGrid bits={seed} boxLabel="Bits en clair"/>

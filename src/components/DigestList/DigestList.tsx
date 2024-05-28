@@ -1,7 +1,17 @@
-import {PlaintextDigest} from "../PlaintextDigest/PlaintextDigest.jsx";
+import {PlaintextDigest} from "../PlaintextDigest/PlaintextDigest.tsx";
 import './DigestList.css';
 
-export const DigestList = ({hashes}) => {
+type Hash = {
+    plaintext: string;
+    digest: string;
+    index: number;
+}
+
+type DigestListProps = {
+    hashes: Hash[];
+}
+
+export const DigestList = ({hashes}: DigestListProps) => {
     return (
         <div className="digest-list">
             <div className="digest-list-title">

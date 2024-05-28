@@ -1,4 +1,4 @@
-const bitsToSextets = (bits) => {
+const bitsToSextets = (bits: string[] | number[]) => {
     const res = [];
     for (let i = 0; i < bits.length; i += 6) {
         res.push(bits.slice(i, i + 6).join(''));
@@ -7,7 +7,7 @@ const bitsToSextets = (bits) => {
     return res;
 }
 
-export const hashUtils = (bitStream) => {
+export const bitStreamToBase64 = (bitStream: string[] | number[]) => {
     const dictionary = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
     const sextets = bitsToSextets(bitStream);
     let res = '';
@@ -19,7 +19,7 @@ export const hashUtils = (bitStream) => {
 
     return res;
 }
-export const getStringBits = (string) => {
+export const getStringBits = (string: string) => {
     let res = '';
     for (let i = 0; i < string.length; i++) {
         res += string.charCodeAt(i).toString(2);
@@ -27,7 +27,7 @@ export const getStringBits = (string) => {
 
     return res;
 }
-export const padBitsTo256 = (bits) => {
+export const padBitsTo256 = (bits: string[] | number[]) => {
     if (bits.length < 256) {
         const bitsToPad = 256 - bits.length;
         const padding = Array.from('0'.repeat(bitsToPad)).map((n) => Number(n));

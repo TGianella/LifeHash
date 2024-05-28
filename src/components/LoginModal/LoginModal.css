@@ -58,7 +58,7 @@
 }
 
 .login-modal-background {
-    z-index: 99;
+    z-index: 90;
     position: fixed;
     width: 100vw;
     height: 100vh;
