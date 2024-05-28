@@ -1,14 +1,18 @@
 import './GridDisplay.css'
-import {Universe} from "@tgianella/js-game-of-life";
+import {Cells} from "../../types.tsx";
 
 type GridDisplayProps = {
-    universe: Universe
+    universe: Cells;
 }
 
+const emptyGrid = Array.from('0'.repeat(256)).map(Number) as Cells;
+
 export const GridDisplay = ({universe}: GridDisplayProps) => {
+    const displayUniverse = universe.length ? universe : emptyGrid;
+
     return (
         <div className="grid-container">
-            {universe.cells.map((cell, i) => <div key={i} className={`cell ${cell.state === 1 ? 'alive' : 'dead'}`}></div>)}
+            {displayUniverse.map((cell, i) => <div key={i} className={`cell ${cell === 1 ? 'alive' : 'dead'}`}></div>)}
         </div>
     )
 }

@@ -1,13 +1,11 @@
-import {Universe} from "@tgianella/js-game-of-life";
+import {computeNextGeneration} from "@tgianella/js-game-of-life";
 import {getStringBits, bitStreamToBase64, padBitsTo256} from "./hashUtils.ts";
 
 export const hashFunction = (plaintext: string) => {
     const plaintextBits = getStringBits(plaintext);
-    const seed = padBitsTo256(plaintextBits.split('')).map((cell: string | number) => Number(cell));
-    const universe = new Universe(false, 16, 16, seed);
+    let universe = padBitsTo256(plaintextBits.split('')).map((cell: string | number) => Number(cell));
     for (let i = 0; i < 48; i++) {
-        universe.tick();
+        universe = computeNextGeneration(universe, 16, 16);
     }
-    const resultBits = universe.cells.map(cell => cell.state);
-    return bitStreamToBase64(resultBits);
+    return bitStreamToBase64(universe);
 }

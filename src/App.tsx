@@ -8,6 +8,7 @@ import {TopBar} from "./components/TopBar/TopBar.tsx";
 import {TitleBox} from "./components/TitleBox/TitleBox.tsx";
 import {TextBox} from "./components/TextBox/TextBox.tsx";
 import {getStringBits, bitStreamToBase64, padBitsTo256} from "./utils/hashUtils.ts";
+import {Cells} from "./types.tsx";
 
 type Hash = {
     plaintext: string;
@@ -16,7 +17,7 @@ type Hash = {
 }
 
 function App() {
-    const [seed, setSeed] = useState<number[]>([]);
+    const [seed, setSeed] = useState<Cells>([]);
     const [resultBits, setResultBits] = useState('');
     const [hashes, setHashes] = useState<Hash[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,7 +31,7 @@ function App() {
         const formData = new FormData(form);
         const plaintext = formData.get('plaintext') as string;
         const plaintextBits = getStringBits(plaintext);
-        const seed = padBitsTo256(plaintextBits.split('')).map((cell) => Number(cell));
+        const seed = padBitsTo256(plaintextBits.split('')).map((cell) => Number(cell)) as Cells;
 
         setHasInput(true);
         setSeed(seed);
@@ -77,8 +78,9 @@ function App() {
                       />
                   </TitleBox>
                   <TitleBox title="Encodage" className="encoding">
-                      <TextBox className="digest"
-                               title="Condensé">{shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : ''}</TextBox>
+                      <TextBox className="digest" title="Condensé">
+                          {shouldDisplayResults ? bitStreamToBase64(resultBits.split('')) : ''}
+                      </TextBox>
                   </TitleBox>
                   {<DigestList hashes={hashes}/>}
               </div>
