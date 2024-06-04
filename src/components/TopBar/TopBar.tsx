@@ -1,4 +1,4 @@
-import {TextInput} from "../TextInput/TextInput.tsx";
+import {PasswordInput} from "../PasswordInput/PasswordInput.tsx";
 import './TopBar.css'
 import {FormEvent} from "react";
 
@@ -10,7 +10,7 @@ export const TopBar = ({onSubmit, onButtonClick}: TopBarProps) => {
     return (
         <div className="top-bar">
             <div></div>
-            <TextInput onSubmit={onSubmit}/>
+            <PasswordInput onSubmit={onSubmit}/>
             <button onClick={onButtonClick}>Connexion</button>
         </div>
     )
