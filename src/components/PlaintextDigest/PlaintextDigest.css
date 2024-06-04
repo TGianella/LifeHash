@@ -1,27 +1,25 @@
 .plaintext-digest {
-    display: flex;
-    gap: 20px;
-    min-width: 18vw;
-    max-width: 18vw;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  min-width: 18vw;
+  max-width: 18vw;
+  align-items: center;
 }
 
 .plaintext-digest:not(:first-child) {
-    border-top: 1px solid grey;
+  border-top: 1px solid grey;
 }
 
 .plaintext-digest:first-child {
-    margin-top: -20px;
+  margin-top: -20px;
 }
 
-
 li > p {
-    word-break: break-word;
-    max-width: 50%;
+  word-break: break-word;
+  max-width: 50%;
 }
 
 .plaintext {
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
-

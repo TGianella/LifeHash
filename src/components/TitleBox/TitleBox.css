@@ -1,29 +1,29 @@
 .title-box {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: var(--secondary-color);
-    border: 2px solid var(--tertiary-color);
-    padding: 20px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--secondary-color);
+  border: 2px solid var(--tertiary-color);
+  padding: 20px;
+  width: 100%;
 }
 
 .title {
-    margin: 0;
-    align-self: center;
-    writing-mode: vertical-rl;
-    rotate: 180deg;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-transform: uppercase;
+  margin: 0;
+  align-self: center;
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .hash-function-grid {
-    grid-column: 1;
-    grid-row: 2;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .encoding {
-    grid-column: 1;
-    grid-row: 3;
+  grid-column: 1;
+  grid-row: 3;
 }
