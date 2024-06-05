@@ -11,9 +11,9 @@ export const GridDisplay = ({ cells }: GridDisplayProps) => {
   const displayCells = cells.length ? cells : emptyGrid;
 
   return (
-    <div className="grid-container">
+    <div data-testid="display-grid" className="grid-container">
       {displayCells.map((cell, i) => (
-        <div key={i} className={`cell ${cell === 1 ? "alive" : "dead"}`}></div>
+        <div data-testid="cell" key={i} className={`cell ${cell === 1 ? "alive" : "dead"}`}></div>
       ))}
     </div>
   );
