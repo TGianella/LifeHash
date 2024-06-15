@@ -2,7 +2,7 @@ import "./HashFunction.css";
 import { BitsGrid } from "../BitsGrid/BitsGrid.tsx";
 import { BitsGridAnimated } from "../BitsGrid/BitsGridAnimated.tsx";
 import { Cells } from "../../types.tsx";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 type HashFunctionProps = {
   seed: Cells;
@@ -19,11 +19,16 @@ export const HashFunction = ({
   setGlobalFinished,
   hasInput,
 }: HashFunctionProps) => {
+  const [generations, setGenerations] = useState(1);
+
   return (
     <div className="hash-function-wrapper">
       <BitsGrid cells={seed} boxLabel="Bits en clair" />
-      <div className="separator">
-        <div className="arrow-separator"></div>
+      <div className="separator-wrapper">
+        <div>{hasInput ? generations : null}</div>
+        <div className="separator">
+          <div className="arrow-separator"></div>
+        </div>
       </div>
       <BitsGridAnimated
         seed={seed}
@@ -32,6 +37,8 @@ export const HashFunction = ({
         resultBits={resultBits}
         setGlobalFinished={setGlobalFinished}
         hasInput={hasInput}
+        generations={generations}
+        setGenerations={setGenerations}
       />
     </div>
   );

@@ -10,6 +10,8 @@ type BitsGridAnimatedProps = {
   boxLabel: string;
   setGlobalFinished: Dispatch<SetStateAction<boolean>>;
   hasInput: boolean;
+  generations: number;
+  setGenerations: Dispatch<SetStateAction<number>>;
 };
 
 //TODO: refactor to use only one generic component BitsGrid with a prop to animate it
@@ -21,15 +23,18 @@ export const BitsGridAnimated = ({
   boxLabel,
   setGlobalFinished,
   hasInput,
+  generations,
+  setGenerations,
 }: BitsGridAnimatedProps) => {
   return (
     <div className="bits-grid">
       <TextBox title={boxLabel}>{hasInput ? resultBits : ""}</TextBox>
       <AnimatedGrid
-        key={seed.join("")}
         seed={seed}
         setResultBits={setResultBits}
         setGlobalFinished={setGlobalFinished}
+        generations={generations}
+        setGenerations={setGenerations}
       />
     </div>
   );

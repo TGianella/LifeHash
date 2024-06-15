@@ -73,6 +73,7 @@ function App() {
           <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick} />
           <TitleBox title="Fonction de hachage" className="hash-function-grid">
             <HashFunction
+              key={seed.join("")}
               seed={seed}
               setResultBits={setResultBits}
               resultBits={resultBits}

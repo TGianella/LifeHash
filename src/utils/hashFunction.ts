@@ -6,7 +6,7 @@ export const hashFunction = (plaintext: string) => {
   let universe = padBitsTo256(plaintextBits.split("")).map(
     (cell: string | number) => Number(cell),
   );
-  for (let i = 0; i < 48; i++) {
+  for (let i = 0; i < 49; i++) {
     universe = computeNextGeneration(universe, 16, 16);
   }
   return bitStreamToBase64(universe);
