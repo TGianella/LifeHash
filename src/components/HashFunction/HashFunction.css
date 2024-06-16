@@ -15,9 +15,10 @@
 
 .separator {
   width: 2px;
-  height: 35vh;
+  height: 100%;
   background: var(--tertiary-color);
   position: relative;
+  grid-area: e;
 }
 
 .separator-wrapper {
@@ -25,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .arrow-separator {
@@ -45,9 +46,15 @@
 }
 
 .hash-function-wrapper {
-  display: flex;
-  align-items: center;
+  display: grid;
   width: 100%;
-  justify-content: space-between;
-  gap: 3vw;
+  grid-template:
+  "a b c" 1fr
+  "d e f" 5fr / 5fr 1fr 5fr;
+  gap: 1vw;
+  place-items: center;
+}
+
+.generations-counter {
+  grid-area: b;
 }

@@ -5,11 +5,12 @@ type TextBoxProps = {
   className?: string;
   children: ReactNode;
   title: string;
+  area?: string;
 };
 
-export const TextBox = ({ className, children, title }: TextBoxProps) => {
+export const TextBox = ({ className, children, title, area }: TextBoxProps) => {
   return (
-    <fieldset>
+    <fieldset style={{ gridArea: area }}>
       <legend>{title}</legend>
       <p className={`text-box ${className}`}>{children}</p>
     </fieldset>

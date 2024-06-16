@@ -9,6 +9,7 @@ type AnimatedGridProps = {
   setGlobalFinished: Dispatch<SetStateAction<boolean>>;
   generations: number;
   setGenerations: Dispatch<SetStateAction<number>>;
+  area?: string;
 };
 
 export const AnimatedGrid = ({
@@ -17,6 +18,7 @@ export const AnimatedGrid = ({
   setGlobalFinished,
   generations,
   setGenerations,
+  area,
 }: AnimatedGridProps) => {
   const [universe, setUniverse] = useState<Cells>(seed);
   const [finished, setFinished] = useState(false);
@@ -43,5 +45,5 @@ export const AnimatedGrid = ({
     };
   }, [generations, finished, setResultBits, universe]);
 
-  return <GridDisplay cells={universe} />;
+  return <GridDisplay area={area} cells={universe} />;
 };
