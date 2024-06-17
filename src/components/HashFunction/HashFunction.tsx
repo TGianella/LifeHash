@@ -1,7 +1,9 @@
 import "./HashFunction.css";
-import { BitsGrid } from "../BitsGrid/BitsGrid.tsx";
 import { Cells } from "../../types.tsx";
 import { Dispatch, SetStateAction, useState } from "react";
+import { GridDisplay } from "../GridDisplay/GridDisplay.tsx";
+import { AnimatedGrid } from "../AnimatedGrid/AnimatedGrid.tsx";
+import { BitsBox } from "../BitsBox/BitsBox.tsx";
 
 type HashFunctionProps = {
   seed: Cells;
@@ -14,37 +16,44 @@ type HashFunctionProps = {
 export const HashFunction = ({
   seed,
   hasInput,
+  resultBits,
   ...rest
 }: HashFunctionProps) => {
   const [generations, setGenerations] = useState(1);
 
   return (
     <div className="hash-function-wrapper">
-      <BitsGrid
-        areas={{
-          bits: "a",
-          grid: "d",
-        }}
-        seed={seed}
-        boxLabel="Bits en clair"
+      <BitsBox
+        title="Bits en clair"
+        area="a"
         hasInput={hasInput}
-        {...rest}
+        content={seed}
       />
-      <div className="generations-counter">{hasInput ? generations : ""}</div>
+      <GridDisplay area="d" cells={seed} />
+      {hasInput ? (
+        <div
+          className="generations-counter"
+          style={{
+            background: `conic-gradient(var(--quaternary-color) 0%, var(--quaternary-color) ${generations * 2}%, var(--secondary-color) ${generations * 2}%, var(--secondary-color) 100%)`,
+          }}
+        >
+          {generations}
+        </div>
+      ) : null}
       <div className="separator">
         <div className="arrow-separator"></div>
       </div>
-      <BitsGrid
-        areas={{
-          bits: "c",
-          grid: "f",
-        }}
+      <BitsBox
+        title="Bits hachés"
+        area="c"
+        hasInput={hasInput}
+        content={resultBits}
+      />
+      <AnimatedGrid
+        area="f"
         seed={seed}
-        boxLabel="Bits hachés"
         generations={generations}
         setGenerations={setGenerations}
-        hasInput={hasInput}
-        animated
         {...rest}
       />
     </div>

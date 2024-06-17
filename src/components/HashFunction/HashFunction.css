@@ -56,5 +56,12 @@
 }
 
 .generations-counter {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
   grid-area: b;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 100px;
 }
