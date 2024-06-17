@@ -78,6 +78,7 @@ function App() {
       <LoginModal
         style={{ display: isModalOpen ? "flex" : "none" }}
         onCloseButtonClick={handleCloseModalClick}
+        generationsLimit={generationsLimit}
       />
       <div className="app-container">
         <div className="app-grid">

@@ -8,6 +8,7 @@ const initialState = { success: false };
 type LoginModalProps = {
   style: React.CSSProperties;
   onCloseButtonClick: () => void;
+  generationsLimit: number;
 };
 
 type Identifiers = {
@@ -21,7 +22,11 @@ type LoginInfo = {
   digest?: string;
 };
 
-export const LoginModal = ({ style, onCloseButtonClick }: LoginModalProps) => {
+export const LoginModal = ({
+  style,
+  onCloseButtonClick,
+  generationsLimit,
+}: LoginModalProps) => {
   const [identifiersList, setIdentifiersList] = useState<Identifiers[]>([]);
   const [triedLogin, setTriedLogin] = useState(false);
   const [loginInfo, setLoginInfo] = useState<LoginInfo>(initialState);
@@ -33,7 +38,7 @@ export const LoginModal = ({ style, onCloseButtonClick }: LoginModalProps) => {
     const formData = new FormData(form);
     const username = formData.get("username") as string;
     const plaintext = formData.get("password") as string;
-    const digest = hashFunction(plaintext);
+    const digest = hashFunction(plaintext, generationsLimit);
     const identifiers = { username, digest };
 
     form.reset();
@@ -47,7 +52,7 @@ export const LoginModal = ({ style, onCloseButtonClick }: LoginModalProps) => {
     const formData = new FormData(form);
     const username = formData.get("username") as string;
     const plaintext = formData.get("password") as string;
-    const digest = hashFunction(plaintext);
+    const digest = hashFunction(plaintext, generationsLimit);
     const digestToCheck = identifiersList.find(
       (identifiers) => identifiers.username === username,
     )?.digest;
