@@ -17,10 +17,11 @@
 
 .app-grid {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 70vw 22vw;
   gap: 20px;
   grid-template-rows: 1fr 8fr 3fr;
-  max-width: 90vw;
+  max-width: 95vw;
+  max-height: 95vh;
   margin-top: 20px;
 }
 

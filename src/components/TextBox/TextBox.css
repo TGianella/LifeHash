@@ -1,6 +1,6 @@
 .text-box {
-  min-width: 20vw;
-  max-width: 20vw;
+  min-width: 26vw;
+  max-width: 26vw;
   text-overflow: ellipsis;
   overflow: hidden;
   margin-block: 0;

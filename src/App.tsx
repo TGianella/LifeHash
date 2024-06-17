@@ -1,5 +1,5 @@
 import "./App.css";
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { HashFunction } from "./components/HashFunction/HashFunction.tsx";
 import { DigestList } from "./components/DigestList/DigestList.tsx";
 import { hashFunction } from "./utils/hashFunction.ts";
@@ -22,6 +22,7 @@ function App() {
   const [globalFinished, setGlobalFinished] = useState(false);
   const [hasInput, setHasInput] = useState(false);
   const [hashesCount, setHashesCount] = useState<number>(0);
+  const [generationsLimit, setGenerationsLimit] = useState<number>(50);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,18 +38,21 @@ function App() {
     setSeed(seed);
     setResultBits("");
 
-    const digest = hashFunction(plaintext);
+    const digest = hashFunction(plaintext, generationsLimit);
     const plaintextDigest = { plaintext, digest, index: hashesCount };
 
     setHashesCount(hashesCount + 1);
 
-    setTimeout(() => {
-      if (hashes.length < 4) {
-        setHashes(hashes.concat(plaintextDigest));
-      } else {
-        setHashes(hashes.slice(1).concat(plaintextDigest));
-      }
-    }, 3000);
+    setTimeout(
+      () => {
+        if (hashes.length < 4) {
+          setHashes(hashes.concat(plaintextDigest));
+        } else {
+          setHashes(hashes.slice(1).concat(plaintextDigest));
+        }
+      },
+      (3150 / 50) * generationsLimit,
+    );
   };
 
   const handleButtonClick = () => {
@@ -57,6 +61,13 @@ function App() {
 
   const handleCloseModalClick = () => {
     setIsModalOpen(false);
+  };
+
+  const handleGenerationsSliderChange = (
+    event: ChangeEvent<HTMLInputElement>,
+  ) => {
+    setGenerationsLimit(Number(event.target.value));
+    setHasInput(false);
   };
 
   const shouldDisplayResults =
@@ -70,7 +81,11 @@ function App() {
       />
       <div className="app-container">
         <div className="app-grid">
-          <TopBar onSubmit={handleSubmit} onButtonClick={handleButtonClick} />
+          <TopBar
+            onSubmit={handleSubmit}
+            onButtonClick={handleButtonClick}
+            onChange={handleGenerationsSliderChange}
+          />
           <TitleBox title="Fonction de hachage" className="hash-function-grid">
             <HashFunction
               key={seed.join("")}
@@ -79,6 +94,7 @@ function App() {
               resultBits={resultBits}
               setGlobalFinished={setGlobalFinished}
               hasInput={hasInput}
+              generationsLimit={generationsLimit}
             />
           </TitleBox>
           <TitleBox title="Encodage" className="encoding">

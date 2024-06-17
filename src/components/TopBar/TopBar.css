@@ -6,3 +6,24 @@
   gap: 50px;
   justify-content: space-between;
 }
+
+input[type="range"] {
+  color: var(--tertiary-color);
+}
+
+datalist, input[type="range"] {
+  width: 100%;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6em;
+  position: relative;
+  left: 8px;
+  bottom: 5px;
+}
+
+option {
+  rotate: 75deg;
+}

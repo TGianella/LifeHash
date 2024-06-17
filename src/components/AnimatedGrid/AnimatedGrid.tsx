@@ -10,6 +10,7 @@ type AnimatedGridProps = {
   generations: number;
   setGenerations: Dispatch<SetStateAction<number>>;
   area?: string;
+  generationsLimit: number;
 };
 
 export const AnimatedGrid = ({
@@ -19,6 +20,7 @@ export const AnimatedGrid = ({
   generations,
   setGenerations,
   area,
+  generationsLimit,
 }: AnimatedGridProps) => {
   const [universe, setUniverse] = useState<Cells>(seed);
   const [finished, setFinished] = useState(false);
@@ -28,7 +30,7 @@ export const AnimatedGrid = ({
     let interval: number;
 
     if (!finished) {
-      if (generations < 50) {
+      if (generations < generationsLimit) {
         interval = setInterval(() => {
           const nextUniverse = computeNextGeneration(universe, 16, 16);
           setUniverse(nextUniverse);
