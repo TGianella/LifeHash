@@ -18,11 +18,22 @@ export const DigestList = ({ hashes }: DigestListProps) => {
         </span>
         <span>Condensé</span>
       </div>
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        {hashes.map(({ plaintext, digest, index }) => (
-          <PlaintextDigest key={index} plaintext={plaintext} digest={digest} />
-        ))}
-      </ul>
+      {hashes && hashes.length > 0 ? (
+        <ul style={{ listStyle: "none", padding: 0 }}>
+          {hashes.map(({ plaintext, digest, index }) => (
+            <PlaintextDigest
+              key={index}
+              plaintext={plaintext}
+              digest={digest}
+            />
+          ))}
+        </ul>
+      ) : (
+        <div className="hashes-placeholder">
+          Aucun condensé pour le moment. Entre un mot de passe en haut de la
+          page !
+        </div>
+      )}
     </div>
   );
 };

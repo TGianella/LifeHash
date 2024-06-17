@@ -40,7 +40,7 @@ export const HashFunction = ({
         <div
           className="generations-counter"
           style={{
-            background: `conic-gradient(var(--quaternary-color) 0%, var(--quaternary-color) ${generationsProgressPercentage}%, var(--secondary-color) ${generationsProgressPercentage}%, var(--secondary-color) 100%)`,
+            background: `conic-gradient(var(--quaternary-color) -0.1%, var(--quaternary-color) ${generationsProgressPercentage}%, var(--secondary-color) ${generationsProgressPercentage}%, var(--secondary-color) 100%)`,
           }}
         >
           {generations}
