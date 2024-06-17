@@ -6,7 +6,6 @@ import { hashFunction } from "../../utils/hashFunction.ts";
 const initialState = { success: false };
 
 type LoginModalProps = {
-  style: React.CSSProperties;
   onCloseButtonClick: () => void;
   generationsLimit: number;
 };
@@ -23,7 +22,6 @@ type LoginInfo = {
 };
 
 export const LoginModal = ({
-  style,
   onCloseButtonClick,
   generationsLimit,
 }: LoginModalProps) => {
@@ -65,11 +63,7 @@ export const LoginModal = ({
   };
 
   return (
-    <div
-      className="login-modal-background"
-      style={style}
-      onClick={onCloseButtonClick}
-    >
+    <div className="login-modal-background" onClick={onCloseButtonClick}>
       <div className="login-modal" onClick={(event) => event.stopPropagation()}>
         <button className="close-modal-button" onClick={onCloseButtonClick}>
           x

@@ -19,26 +19,26 @@ export const TopBar = ({ onSubmit, onButtonClick, onChange }: TopBarProps) => {
         >
           Paramètres
         </button>
-        <div
-          className="dropdown-background"
-          style={{ display: isDropdownOpen ? "block" : "none" }}
-          onClick={() => setIsDropdownOpen(false)}
-        ></div>
-        <div
-          className="options-dropdown"
-          style={{ display: isDropdownOpen ? "block" : "none" }}
-        >
-          <label>Limite de générations</label>
-          <input type="range" onChange={onChange} list="values" />
-          <datalist id="values">
-            <option value="1" label="1"></option>
-            <option value="20" label="20 "></option>
-            <option value="40" label="40 "></option>
-            <option value="60" label="60 "></option>
-            <option value="80" label="80 "></option>
-            <option value="100" label="100"></option>
-          </datalist>
-        </div>
+        {isDropdownOpen ? (
+          <>
+            <div
+              className="dropdown-background"
+              onClick={() => setIsDropdownOpen(false)}
+            ></div>
+            <div className="options-dropdown">
+              <label>Limite de générations</label>
+              <input type="range" onChange={onChange} list="values" />
+              <datalist id="values">
+                <option value="1" label="1"></option>
+                <option value="20" label="20 "></option>
+                <option value="40" label="40 "></option>
+                <option value="60" label="60 "></option>
+                <option value="80" label="80 "></option>
+                <option value="100" label="100"></option>
+              </datalist>
+            </div>
+          </>
+        ) : null}
       </div>
       <PasswordInput onSubmit={onSubmit} />
       <button onClick={onButtonClick}>Connexion</button>

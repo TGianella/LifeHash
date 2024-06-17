@@ -75,11 +75,13 @@ function App() {
 
   return (
     <>
-      <LoginModal
-        style={{ display: isModalOpen ? "flex" : "none" }}
-        onCloseButtonClick={handleCloseModalClick}
-        generationsLimit={generationsLimit}
-      />
+      {isModalOpen ? (
+        <LoginModal
+          onCloseButtonClick={handleCloseModalClick}
+          generationsLimit={generationsLimit}
+        />
+      ) : null}
+
       <div className="app-container">
         <div className="app-grid">
           <TopBar
